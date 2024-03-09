@@ -1,6 +1,33 @@
-###############################################################################
-# Bazel now uses Bzlmod by default to manage external dependencies.
-# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
-#
-# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
-###############################################################################
+"""
+Bazel now uses Bzlmod by default to manage external dependencies.
+Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
+
+For more details, please check https://github.com/bazelbuild/bazel/issues/18958
+
+Bazel Central Registry: https://registry.bazel.build/
+"""
+
+module(name = "grpc_proto_playground", version = "1.0.0")
+
+bazel_dep(name = "rules_proto", version = "6.0.0-rc2")
+
+GOOGLE_APIS_VERSION = "64926d52febbf298cb82a8f472ade4a3969ba922"
+bazel_dep(name = "com_google_googleapis", version = GOOGLE_APIS_VERSION)
+archive_override(
+    module_name = "com_google_googleapis",
+    integrity = "sha256-nRqTDnZ8k8glOYuPhpLso/41O5qq3t+88fyiKCyF34g=",
+    patch_strip = 1,
+    patches = [
+        "add_bzlmod_support.patch"
+    ],
+    strip_prefix = "googleapis-" + GOOGLE_APIS_VERSION,
+    urls = [
+        "https://github.com/googleapis/googleapis/archive/%s.zip" % GOOGLE_APIS_VERSION
+    ],
+)
+
+switched_rules = use_extension("@com_google_googleapis//:extensions.bzl", "switched_rules")
+switched_rules.use_languages(
+    grpc = True,
+)
+use_repo(switched_rules, "com_google_googleapis_imports")
