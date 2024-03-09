@@ -13,11 +13,24 @@ http_archive(
     ],
 )
 
-local_repository(
-    name = "com_github_googleapis_googleapis",
-    path = "/home/rmaxiqp/Projects/grpc-proto",
-)
-
 load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
 rules_proto_dependencies()
 rules_proto_toolchains()
+
+http_archive(
+    name = "com_google_googleapis",
+    sha256 = "e8568a13080cfd5ca2d2f91dd0bcf4f11f9ba581b87ef2a01d0898f62c18683c",
+    strip_prefix = "googleapis-6500290663163ba7dc6e0a35231772f5f78c3b62",
+    urls = [
+        "https://github.com/googleapis/googleapis/archive/6500290663163ba7dc6e0a35231772f5f78c3b62.zip",
+    ]
+)
+load("@com_google_googleapis//:repositories.bzl", "switched_rules_by_language")
+switched_rules_by_language(
+    name = "com_google_googleapis_imports",
+    go = True,
+    grpc = True,
+    java = True,
+    nodejs = True,
+    python = True,
+)

@@ -8,6 +8,6 @@ proto_library(
         # seen with:
         # `bazel query 'kind(proto_library, @com_google_protobuf//:all)'`
         "@com_google_protobuf//:api_proto",
-        "//submodules/googleapis:"
+        "//third_party/googleapis:"
     ],
 )
