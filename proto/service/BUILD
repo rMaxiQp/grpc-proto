@@ -1,0 +1,13 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+proto_library(
+    name = "greet_proto",
+    srcs = ["greet.proto"],
+    deps = [
+        # A list of all @com_google_protobuf well known protos can
+        # seen with:
+        # `bazel query 'kind(proto_library, @com_google_protobuf//:all)'`
+        "@com_google_protobuf//:api_proto",
+        "//submodules/googleapis:"
+    ],
+)
