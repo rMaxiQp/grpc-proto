@@ -1,8 +1,10 @@
 syntax = "proto3";
 
-package service;
+package greet;
 
 import "google/api/annotations.proto";
+
+option go_package = "github.com/grpc-proto/pkg/greet";
 
 message HelloRequest {
     // The name of the person to greet
