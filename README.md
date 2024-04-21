@@ -14,3 +14,5 @@ A few things that I'd like to achieve:
 $ brew install buildifier bazelisk
 
 ```
+
+For Editor Setup, please checkout [this](https://github.com/bazelbuild/rules_go/wiki/Editor-setup) document

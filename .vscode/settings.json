@@ -6,4 +6,32 @@
   },
   "go.gopath": "${workspaceFolder}/bazel-bin/gopath",
   "go.toolsGopath": "${workspaceFolder}/bazel-bin/gopath",
+  "go.toolsEnvVars": {
+    "GOPACKAGESDRIVER": "${workspaceFolder}/tools/gopackagesdriver.sh",
+    "GOPRIVATE": "github.com/rMaxiQp/grpc-proto",
+  },
+  "gopls": {
+    "build.directoryFilters": [
+      "-bazel-bin",
+      "-bazel-out",
+      "-bazel-testlogs",
+    ],
+    "formatting.gofumpt": true,
+    "formatting.local": "github.com/rMaxiQp/grpc-proto",
+    "ui.completion.usePlaceholders": true,
+    "ui.semanticTokens": true,
+    "ui.codelenses": {
+      "gc_details": false,
+      "regenerate_cgo": false,
+      "generate": false,
+      "test": false,
+      "tidy": false,
+      "upgrade_dependency": false,
+      "vendor": false
+    },
+    "ui.navigation.symbolScope": "all",
+    "ui.navigation.importShortcut": "Both",
+  },
+  "go.useLanguageServer": true,
+  "go.vetOnSave": "off"
 }
