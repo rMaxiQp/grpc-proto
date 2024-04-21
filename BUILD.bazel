@@ -5,5 +5,26 @@
 # gazelle:resolve proto google/longrunning/operations.proto @googleapis//google/longrunning:operations_proto
 # gazelle:resolve proto go google/longrunning/operations.proto @org_golang_google_genproto//googleapis/longrunning
 load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@io_bazel_rules_go//go:def.bzl", "go_path")
 
+go_path(
+    name = "gopath",
+    mode = "copy",
+    deps = [
+        "//proto/greet:greet_go_proto",
+    ],
+)
+
+# gazelle:prefix github.com/rMaxiQp/grpc-proto
 gazelle(name = "gazelle")
+
+
+gazelle(
+    name = "gazelle-update-repos",
+    args = [
+        "-from_file=go.mod",
+        "-to_macro=deps.bzl%go_dependencies",
+        "-prune",
+    ],
+    command = "update-repos",
+)

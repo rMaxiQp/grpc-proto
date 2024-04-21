@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+package(default_visibility = ["//visibility:public"])
+
+go_library(
+    name = "server_lib",
+    srcs = ["server.go"],
+    importpath = "github.com/rMaxiQp/grpc-proto/pkg/server",
+    deps = [
+        "//proto/greet:greet_go_proto"
+    ]
+)

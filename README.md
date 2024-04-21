@@ -10,6 +10,7 @@ A few things that I'd like to achieve:
 ## Setup Requirements
 
 ```.sh
-# Setup Bazel
-$ brew install bazel buildifier
+# Setup prerequisite
+$ brew install buildifier bazelisk
+
 ```

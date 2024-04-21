@@ -3,5 +3,7 @@
   "editor.insertSpaces": true,
   "protoc": {
     "options": ["--proto_path=${workspaceFolder}/proto"]
-  }
+  },
+  "go.gopath": "${workspaceFolder}/bazel-bin/gopath",
+  "go.toolsGopath": "${workspaceFolder}/bazel-bin/gopath",
 }

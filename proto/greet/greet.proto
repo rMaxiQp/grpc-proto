@@ -4,7 +4,7 @@ package greet;
 
 import "google/api/annotations.proto";
 
-option go_package = "github.com/grpc-proto/pkg/greet";
+option go_package = "github.com/rMaxiQp/grpc-proto/pkg/greet";
 
 message HelloRequest {
     // The name of the person to greet
