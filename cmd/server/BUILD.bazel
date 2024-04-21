@@ -7,6 +7,8 @@ go_library(
     srcs = ["server.go"],
     deps = [
         "//pkg/server:server_lib",
+        "//proto/greet:greet_go_grpc",
+        "@org_golang_google_grpc//:go_default_library",
     ]
 )
 
