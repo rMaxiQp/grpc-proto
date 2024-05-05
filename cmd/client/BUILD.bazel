@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+go_library(
+    name = "cmd_lib",
+    importpath = "github.com/rMaxiQp/grpc-proto/cmd/client",
+    srcs = ["client.go"],
+    deps = [
+        "//proto/greet:greet_go_grpc",
+        "@org_golang_google_grpc//:go_default_library",
+    ]
+)
+
+go_binary(
+    name = "client",
+    embed = [":cmd_lib"]
+)

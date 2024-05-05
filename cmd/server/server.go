@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"net"
 
@@ -14,7 +13,7 @@ import (
 
 func main() {
 	flag.Parse()
-	lis, err := net.Listen("tcp", ":9000")
+	handler, err := net.Listen("tcp", ":9000")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
@@ -24,8 +23,5 @@ func main() {
 	grpcServer := grpc.NewServer(opts...)
 	greet.RegisterGreetServer(grpcServer, s)
 
-	fmt.Println("Starting")
-	grpcServer.Serve(lis)
-
-	fmt.Println("Hello!")
+	grpcServer.Serve(handler)
 }
