@@ -7,7 +7,7 @@ import (
 
 	"github.com/golang/glog"
 
-	"github.com/rMaxiQp/grpc-proto/greet"
+	"github.com/rMaxiQp/grpc-proto/proto/greet"
 )
 
 type Server struct{}

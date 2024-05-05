@@ -1,11 +1,15 @@
+"""
+Generate required dependencies for bazel from go.mod
+"""
 load("@bazel_gazelle//:deps.bzl", "go_repository")
 
-"""
-A list of external dependencies from go.mod
-Run bazelisk run //:gazelle-update-repos to update this file
-"""
 
 def go_dependencies():
+    """
+    A list of external dependencies from go.mod
+
+    Run bazelisk run //:gazelle-update-repos to update this file
+    """
     go_repository(
         name = "com_github_golang_glog",
         importpath = "github.com/golang/glog",

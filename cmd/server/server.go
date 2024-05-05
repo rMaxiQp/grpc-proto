@@ -7,8 +7,8 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/rMaxiQp/grpc-proto/greet"
 	"github.com/rMaxiQp/grpc-proto/pkg/server"
+	"github.com/rMaxiQp/grpc-proto/proto/greet"
 )
 
 func main() {
