@@ -1,18 +1,22 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
-
+package(default_visibility = ["//visibility:public"])
 
 go_library(
     name = "cmd_lib",
-    importpath = "github.com/rMaxiQp/grpc-proto/cmd/server",
     srcs = ["server.go"],
+    importpath = "github.com/rMaxiQp/grpc-proto/cmd/server",
     deps = [
         "//pkg/server:server_lib",
         "//proto/greet:greet_go_grpc",
         "@org_golang_google_grpc//:go_default_library",
-    ]
+    ],
 )
 
 go_binary(
     name = "server",
+    args = [
+        "-logtostderr",
+        "-v=2",
+    ],
     embed = [":cmd_lib"],
 )

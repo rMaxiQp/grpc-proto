@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"flag"
-	"fmt"
 
+	"github.com/golang/glog"
 	"google.golang.org/grpc"
 
 	"github.com/rMaxiQp/grpc-proto/greet"
@@ -22,5 +22,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("resp message: %s\n", resp.Message)
+	glog.V(2).Infof("resp message: %s", resp.Message)
 }

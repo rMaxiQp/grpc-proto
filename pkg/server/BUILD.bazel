@@ -8,5 +8,6 @@ go_library(
     importpath = "github.com/rMaxiQp/grpc-proto/pkg/server",
     deps = [
         "//proto/greet:greet_go_grpc",
-    ]
+        "@com_github_golang_glog//:glog",
+    ],
 )

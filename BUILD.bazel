@@ -18,7 +18,6 @@ go_path(
 # gazelle:prefix github.com/rMaxiQp/grpc-proto
 gazelle(name = "gazelle")
 
-
 gazelle(
     name = "gazelle-update-repos",
     args = [
