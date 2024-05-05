@@ -16,3 +16,13 @@ $ brew install buildifier bazelisk
 ```
 
 For Editor Setup, please checkout [this](https://github.com/bazelbuild/rules_go/wiki/Editor-setup) document
+
+## For testing
+
+```
+# Start the go server at port 9090
+$ bazelisk run //cmd/server
+
+# Startt the go client talking to the server via tcp:9090
+$ bazelisk run //cmd/client
+```
