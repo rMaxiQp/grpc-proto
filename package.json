@@ -1,0 +1,24 @@
+{
+  "name": "grpc-proto",
+  "version": "1.0.0",
+  "description": "GRPC Proto playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rMaxiQp/grpc-proto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rMaxiQp/grpc-proto/issues"
+  },
+  "homepage": "https://github.com/rMaxiQp/grpc-proto#readme",
+  "volta": {
+    "node": "20.8.1",
+    "pnpm": "8.9.2"
+  }
+}
