@@ -1,4 +1,5 @@
 {
+  "editor.formatOnSave": true,
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
   "protoc": {
@@ -20,15 +21,6 @@
     "formatting.local": "github.com/rMaxiQp/grpc-proto",
     "ui.completion.usePlaceholders": true,
     "ui.semanticTokens": true,
-    "ui.codelenses": {
-      "gc_details": false,
-      "regenerate_cgo": false,
-      "generate": false,
-      "test": false,
-      "tidy": false,
-      "upgrade_dependency": false,
-      "vendor": false
-    },
     "ui.navigation.symbolScope": "all",
     "ui.navigation.importShortcut": "Both",
   },

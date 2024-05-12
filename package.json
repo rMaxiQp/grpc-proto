@@ -20,5 +20,11 @@
   "volta": {
     "node": "20.8.1",
     "pnpm": "8.9.2"
+  },
+  "dependencies": {
+    "loglevel": "^1.9.1"
+  },
+  "devDependencies": {
+    "typescript": "5.4.5"
   }
 }

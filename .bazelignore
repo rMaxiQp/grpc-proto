@@ -1,0 +1,2 @@
+# Ignore all node_modules to Bazel
+node_modules/

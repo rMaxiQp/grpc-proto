@@ -3,7 +3,6 @@ Generate required dependencies for bazel from go.mod
 """
 load("@bazel_gazelle//:deps.bzl", "go_repository")
 
-
 def go_dependencies():
     """
     A list of external dependencies from go.mod

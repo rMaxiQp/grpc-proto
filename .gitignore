@@ -22,3 +22,7 @@ go.work
 
 # Bazel generated files
 **/bazel-*
+
+# Javascript dependencies
+build
+node_modules
