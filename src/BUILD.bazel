@@ -1,0 +1,23 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config", "ts_project")
+
+package(default_visibility = ["//visibility:public"])
+
+ts_config(
+    name = "default_tsconfig",
+    srcs = ["tsconfig.json"],
+    deps = [
+        ":node_modules/loglevel",
+    ],
+)
+
+ts_project(
+    name = "ts_example",
+    srcs = ["index.ts"],
+    tsconfig = "default_tsconfig",
+)
+
+js_binary(
+    name = "js_example",
+    entry_point = "index.js",
+)

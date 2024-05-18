@@ -8,6 +8,9 @@
 # gazelle:resolve proto go google/longrunning/operations.proto @org_golang_google_genproto//googleapis/longrunning
 load("@bazel_gazelle//:def.bzl", "gazelle")
 load("@io_bazel_rules_go//go:def.bzl", "go_path")
+load("@npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages()
 
 go_path(
     name = "gopath",

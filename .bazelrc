@@ -73,3 +73,11 @@ common --incompatible_disallow_empty_glob
 # Docs: https://bazel.build/reference/command-line-reference#flag--experimental_fetch_all_coverage_outputs
 # detching remote cache results
 test --experimental_fetch_all_coverage_outputs
+
+# passes an argument `--skipLibCheck` to *every* spawn of tsc
+common --@aspect_rules_ts//ts:skipLibCheck=always
+
+# Use "tsc" as the transpiler when ts_project has no `transpiler` set.
+build --@aspect_rules_ts//ts:default_to_tsc_transpiler
+fetch --@aspect_rules_ts//ts:default_to_tsc_transpiler
+query --@aspect_rules_ts//ts:default_to_tsc_transpiler

@@ -29,6 +29,7 @@ npm_translate_lock(
     name = "npm",
     npmrc = "//:.npmrc",
     pnpm_lock = "//:pnpm-lock.yaml",
+    pnpm_version = "8.9.2",
     verify_node_modules_ignored = "//:.bazelignore",
 )
 
@@ -62,7 +63,7 @@ switched_rules_by_language(
     name = "com_google_googleapis_imports",
     go = True,
     grpc = True,
-    # nodejs = True
+    nodejs = True,
 )
 
 # Protobuf dependencies
