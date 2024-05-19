@@ -33,6 +33,10 @@ npm_translate_lock(
     verify_node_modules_ignored = "//:.bazelignore",
 )
 
+load("@npm//:repositories.bzl", "npm_repositories")
+
+npm_repositories()
+
 # Go & Gazelle dependencies
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 

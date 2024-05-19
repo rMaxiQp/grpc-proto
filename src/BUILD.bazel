@@ -5,16 +5,16 @@ package(default_visibility = ["//visibility:public"])
 
 ts_config(
     name = "default_tsconfig",
-    srcs = ["tsconfig.json"],
-    deps = [
-        ":node_modules/loglevel",
-    ],
+    src = "tsconfig.json",
 )
 
 ts_project(
     name = "ts_example",
     srcs = ["index.ts"],
     tsconfig = "default_tsconfig",
+    deps = [
+        "//:node_modules",
+    ],
 )
 
 js_binary(
