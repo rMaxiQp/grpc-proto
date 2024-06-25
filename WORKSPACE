@@ -4,6 +4,19 @@ load("//:repositories.bzl", "http_dependencies")
 
 http_dependencies()
 
+# Protobuf dependencies
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies")
+
+rules_proto_dependencies()
+
+load("@rules_proto//proto:setup.bzl", "rules_proto_setup")
+
+rules_proto_setup()
+
+load("@rules_proto//proto:toolchains.bzl", "rules_proto_toolchains")
+
+rules_proto_toolchains()
+
 # TypeScript & JavaScript dependencies
 load("@aspect_rules_js//js:repositories.bzl", "rules_js_dependencies")
 
@@ -69,10 +82,3 @@ switched_rules_by_language(
     grpc = True,
     nodejs = True,
 )
-
-# Protobuf dependencies
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
-
-rules_proto_dependencies()
-
-rules_proto_toolchains()

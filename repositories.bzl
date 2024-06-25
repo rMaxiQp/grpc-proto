@@ -1,6 +1,7 @@
 """
 This file contains the external repositories for the project.
 """
+
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 def http_dependencies():
@@ -35,6 +36,13 @@ def http_dependencies():
     )
 
     http_archive(
+        name = "rules_proto",
+        sha256 = "6fb6767d1bef535310547e03247f7518b03487740c11b6c6adb7952033fe1295",
+        strip_prefix = "rules_proto-6.0.2",
+        url = "https://github.com/bazelbuild/rules_proto/releases/download/6.0.2/rules_proto-6.0.2.tar.gz",
+    )
+
+    http_archive(
         name = "rules_proto_grpc",
         sha256 = "2a0860a336ae836b54671cbbe0710eec17c64ef70c4c5a88ccfd47ea6e3739bd",
         strip_prefix = "rules_proto_grpc-4.6.0",
@@ -52,9 +60,9 @@ def http_dependencies():
 
     http_archive(
         name = "aspect_rules_ts",
-        sha256 = "b11f5bd59983a58826842029b99240fd0eeb6f1291d710db10f744b327701646",
-        strip_prefix = "rules_ts-2.3.0",
-        url = "https://github.com/aspect-build/rules_ts/releases/download/v2.3.0/rules_ts-v2.3.0.tar.gz",
+        sha256 = "f69a6452b129d39d9b05f3dff8b1057185bb195b4daf0cff419988de757c6c31",
+        strip_prefix = "rules_ts-2.4.2",
+        url = "https://github.com/aspect-build/rules_ts/releases/download/v2.4.2/rules_ts-v2.4.2.tar.gz",
     )
 
     http_archive(

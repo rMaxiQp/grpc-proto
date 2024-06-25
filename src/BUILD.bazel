@@ -10,14 +10,20 @@ ts_config(
 
 ts_project(
     name = "ts_example",
-    srcs = ["index.ts"],
+    srcs = [
+        "index.ts",
+    ],
     tsconfig = "default_tsconfig",
     deps = [
         "//:node_modules",
+        "//proto/greet:greet_ts_proto",
     ],
 )
 
 js_binary(
     name = "js_example",
+    data = [
+        ":ts_example",
+    ],
     entry_point = "index.js",
 )
