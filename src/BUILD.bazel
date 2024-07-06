@@ -27,3 +27,23 @@ js_binary(
     ],
     entry_point = "client.js",
 )
+
+ts_project(
+    name = "ts_server",
+    srcs = [
+        "server.ts",
+    ],
+    tsconfig = "default_tsconfig",
+    deps = [
+        "//:node_modules",
+        "//proto/greet:greet_ts_proto",
+    ],
+)
+
+js_binary(
+    name = "js_server",
+    data = [
+        ":ts_server",
+    ],
+    entry_point = "server.js",
+)
