@@ -9,9 +9,9 @@ ts_config(
 )
 
 ts_project(
-    name = "ts_example",
+    name = "ts_client",
     srcs = [
-        "index.ts",
+        "client.ts",
     ],
     tsconfig = "default_tsconfig",
     deps = [
@@ -21,9 +21,9 @@ ts_project(
 )
 
 js_binary(
-    name = "js_example",
+    name = "js_client",
     data = [
-        ":ts_example",
+        ":ts_client",
     ],
-    entry_point = "index.js",
+    entry_point = "client.js",
 )

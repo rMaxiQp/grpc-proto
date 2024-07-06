@@ -27,6 +27,10 @@ function greet(payload: HelloRequest): Promise<HelloResponse> {
 }
 
 async function main() {
+  // const server = new Server();
+  // server.addService(Greet, { sayHello });
+  // client.makeUnaryRequest()
+
   const payload = new HelloRequest({ name: "world" });
   await greet(payload);
   console.log("Hello, world!");

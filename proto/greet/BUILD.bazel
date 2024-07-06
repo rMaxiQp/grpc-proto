@@ -24,10 +24,13 @@ go_proto_library(
     ],
 )
 
+# Afte running `bazelisk run //proto/greet:greet_ts_proto`,
+# Run `bazelisk run //proto/greet:greet_ts_proto.copy` to copy the generated files to the correct location
+# Related issue: https://github.com/aspect-build/rules_ts/issues/545
 ts_proto_library(
     name = "greet_ts_proto",
     gen_connect_es = True,
-    gen_connect_query = True,
+    gen_connect_query = False,
     gen_connect_query_service_mapping = {
         "greet.proto": ["Greet"],
     },
