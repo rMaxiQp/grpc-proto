@@ -1,8 +1,11 @@
 # grpc-proto
+
 GRPC Proto playground
 
 ## Scope
+
 A few things that I'd like to achieve:
+
 1. Compile [protobuf](https://protobuf.dev/) services with RPC & HTTP supports
 2. Setup client/server for GRPC communication via Go (maybe extend it to JavaScript/Java later)
 3. Play around with [Bazel](https://bazel.build/) a bit
@@ -20,9 +23,15 @@ For Editor Setup, please checkout [this](https://github.com/bazelbuild/rules_go/
 ## For testing
 
 ```
-# Start the go server at port 9090
+# Start the go server at port 9000
 $ bazelisk run //cmd/server
 
-# Startt the go client talking to the server via tcp:9090
+# Startt the go client talking to the server via tcp:9000
 $ bazelisk run //cmd/client
+
+# Start the js server at port 9000
+$ bazelisk run //src:js_server
+
+# Start the js client talking to the server via tcp:9000
+$ bazelisk run //src:js_client
 ```
