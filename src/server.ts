@@ -28,9 +28,8 @@ function logger(): Interceptor {
   return (next) => async (req) => {
     const start = Date.now();
     const res = await next(req);
-    console.log(
-      `Request ${req.method.name} took ${(Date.now() - start).toString()}ms`
-    );
+    const cost = (Date.now() - start).toString();
+    console.log(`Request ${req.method.name} took ${cost}ms`);
     return res;
   };
 }
@@ -39,8 +38,4 @@ const routes = function (router: ConnectRouter) {
   router.service(Greet, { sayHello }, { interceptors: [logger()] });
 };
 
-async function main() {
-  http2.createServer(connectNodeAdapter({ routes })).listen(9000);
-}
-
-main();
+http2.createServer(connectNodeAdapter({ routes })).listen(9000);

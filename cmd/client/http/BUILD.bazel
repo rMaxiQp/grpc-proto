@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+package(default_visibility = ["//visibility:public"])
+
+go_library(
+    name = "client_lib",
+    srcs = ["http.go"],
+    importpath = "github.com/rMaxiQp/grpc-proto/cmd/client/http",
+    deps = [
+        "//proto/greet:greet_go_proto",
+        "@com_github_golang_glog//:glog",
+        "@org_golang_google_protobuf//encoding/protojson",
+    ],
+)
+
+go_binary(
+    name = "client",
+    args = [
+        "-logtostderr",
+        "-v=2",
+    ],
+    embed = [":client_lib"],
+)

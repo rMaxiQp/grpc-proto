@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "@connectrpc/connect": "^1.4.0",
-    "@connectrpc/connect-node": "^1.4.0",
-    "typescript": "5.4.5"
+    "@connectrpc/connect-node": "^1.4.0"
   },
   "devDependencies": {
     "@bufbuild/protobuf": "^1.10.0",
     "@bufbuild/protoc-gen-es": "^1.10.0",
     "@connectrpc/protoc-gen-connect-es": "^1.4.0",
     "@connectrpc/protoc-gen-connect-query": "^1.4.1",
-    "@types/node": "^20.14.8"
+    "@types/node": "^20.14.8",
+    "typescript": "5.4.5"
   }
 }
