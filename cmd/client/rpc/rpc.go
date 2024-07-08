@@ -12,7 +12,7 @@ import (
 
 func main() {
 	flag.Parse()
-	conn, err := grpc.Dial(":9000", grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial(":9090", grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		panic(err)
 	}

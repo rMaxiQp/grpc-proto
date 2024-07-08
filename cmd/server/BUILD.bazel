@@ -9,6 +9,7 @@ go_library(
     deps = [
         "//pkg/server:server_lib",
         "//proto/greet:greet_go_proto",
+        "@com_github_golang_glog//:glog",
         "@org_golang_google_grpc//:go_default_library",
     ],
 )

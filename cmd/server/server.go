@@ -4,7 +4,9 @@ import (
 	"flag"
 	"log"
 	"net"
+	"net/http"
 
+	"github.com/golang/glog"
 	"google.golang.org/grpc"
 
 	"github.com/rMaxiQp/grpc-proto/pkg/server"
@@ -13,15 +15,20 @@ import (
 
 func main() {
 	flag.Parse()
-	handler, err := net.Listen("tcp", ":9000")
-	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
-	}
-
 	s := &server.Server{}
-	var opts []grpc.ServerOption
-	grpcServer := grpc.NewServer(opts...)
-	greet.RegisterGreetServer(grpcServer, s)
-
-	grpcServer.Serve(handler)
+	go func() {
+		var opts []grpc.ServerOption
+		grpcServer := grpc.NewServer(opts...)
+		greet.RegisterGreetServer(grpcServer, s)
+		grpcPort := "9090"
+		handler, err := net.Listen("tcp", ":"+grpcPort)
+		if err != nil {
+			glog.Exitf("failed to start grpc port: %w", err)
+		}
+		grpcServer.Serve(handler)
+	}()
+	port := "9000"
+	if err := http.ListenAndServe(":"+port, s); err != nil {
+		log.Printf("failed to serve: %v\n", err)
+	}
 }

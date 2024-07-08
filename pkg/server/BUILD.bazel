@@ -9,5 +9,6 @@ go_library(
     deps = [
         "//proto/greet:greet_go_proto",
         "@com_github_golang_glog//:glog",
+        "@org_golang_google_protobuf//encoding/protojson",
     ],
 )
